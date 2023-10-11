@@ -1,45 +1,62 @@
- /* co trzeba zrobić:
- - po wciśnięciu przycisku powinien wyświetlać się konkretny obrazek
- - komputer powinien losować obrazek
- - warunek kto wygral*/
+const ROCK = 'rock';
 
 
-function getUserChoice() { 
-  //prompt
-    return choice;
-  } 
-  
-  function getComputerChoice() { 
-    let computerChoiceNumber = Math.floor(Math.random() * 3); // 0, 1, 2
-    let computerChoice;
-    if (computerChoiceNumber === 0) {
-      computerChoice = 'Kamień'; 
-    } else if (computerChoiceNumber === 1) {
-      computerChoice = 'Nożyce';
-    } else {
-      computerChoice = 'Papier';
-    }
-    
-    console.log("Komputer wybrał " + computerChoice);
-    return computerChoice;
+function onSelect(userChoice) {
+  let computerChoice = getComputerChoice()
+  displayComputerChoice(computerChoice)
+  evaluateGame(userChoice, computerChoice)
+}
+
+function getComputerChoice() {
+  let computerChoiceNumber = Math.floor(Math.random() * 3);
+  let computerChoice;
+  if (computerChoiceNumber === 0) {
+    computerChoice = ROCK;
+  } else if (computerChoiceNumber === 1) {
+    computerChoice = 'scissors';
+  } else {
+    computerChoice = 'paper';
   }
-  
-  function evaluateGame (userChoice, computerChoice) {
-    let choice;
-    if (computerChoice === userChoice){
-      choice = 'Remis';
-    } else if ((computerChoice === "Kamień" && userChoice === 'Nożyce') || (computerChoice === "Nożyce" && userChoice === 'Papier') || (computerChoice === "Papier" && userChoice === 'Kamień')){
-      choice = 'Przegrałeś';
-    } else {
-      choice = 'Wygrałeś';
-    } 
-    console.log(choice);
+
+  return computerChoice;
+}
+
+function displayComputerChoice(computerChoice) {
+  let computerImage = document.createElement('img')
+  computerImage.src = getComputerImage(computerChoice);
+  document.getElementById('computer-choice').appendChild(computerImage)
+}
+
+
+function getComputerImage(computerChoice) {
+  if (computerChoice === ROCK) {
+    return 'images/rock.png';
+  } else if (computerChoice === 'scissors') {
+    return 'images/scissors.png';
+  } else if (computerChoice === 'paper') {
+    return 'images/paper.png'
   }
-  
-  function gra() {
-    let userChoice = getUserChoice(); // userChoice -> "Papier"
-    let computerChoice = getComputerChoice(); // computerChoice -> "Kamień"
-    evaluateGame(userChoice, computerChoice); 
+}
+
+function evaluateGame(userChoice, computerChoice) {
+  let choice;
+  if (computerChoice === userChoice) {
+    choice = document.getElementById('result-el').textContent = 'Draw!'
+  } else if ((computerChoice === ROCK && userChoice === 'scissors') || (computerChoice === "scissors" && userChoice === 'paper') || (computerChoice === "paper" && userChoice === 'scissors')) {
+    choice = document.getElementById('result-el').textContent = 'You lost';
+  } else {
+    choice = document.getElementById('result-el').textContent = 'You win';
   }
-  
-  gra();
+}
+
+function removeAllChildren(element) {
+  while (element.lastElementChild) {
+    element.removeChild(element.lastElementChild);
+  }
+}
+
+function onReset() {
+  const computerChoice = document.getElementById('computer-choice');
+  removeAllChildren(computerChoice);
+  document.getElementById('result-el').textContent = 'Let\'s play'
+}

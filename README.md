@@ -6,13 +6,13 @@ TODO gif z animacja gry
 
 This project is made in small iterations:
 - [x] Code pure logic in JS using prompt
-- [ ] Add background and title
-- [ ] Display user choices
-- [ ] Add onClick method
-- [ ] Draw random opponent choice
-- [ ] Display opponent choice
-- [ ] Show who won
+- [x] Add background and title
+- [x] Display user choices
+- [x] Add onClick method
+- [x] Draw random opponent choice
+- [x] Display opponent choice
+- [x] Show who won
 - [ ] Add animation when opponent is drawing (CSS animate)
 - [ ] Add animation user chosen
-- [ ] Add replay possibility
+- [x] Add replay possibility
 - [ ] Count points
