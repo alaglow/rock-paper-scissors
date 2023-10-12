@@ -23,9 +23,16 @@ button:active {
     transform: translateY(4px);
 }
 
-img {
+#player-img {
     width: 100px;
     display: block;
+    transform: rotate(90deg);
+}
+
+#computer-img {
+    width: 100px;
+    display: block;
+    transform: rotate(-90deg);
 }
 
 #computer-choice {
@@ -46,7 +53,8 @@ img {
 
 #reset-el {
     display: block;
-    padding: 20px;
-    border: white;
-    background: white;
+    padding: 10px;
+    border: 2px solid rgb(198, 176, 169);
+    background: rgb(255, 227, 219);
+    margin: 10px auto;
 }
