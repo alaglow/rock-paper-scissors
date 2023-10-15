@@ -12,7 +12,7 @@ This project is made in small iterations:
 - [x] Draw random opponent choice
 - [x] Display opponent choice
 - [x] Show who won
-- [ ] Add animation when opponent is drawing (CSS animate)
-- [ ] Add animation user chosen
+- [x] Add animation when opponent is drawing (CSS animate)
+- [x] Add animation user chosen
 - [x] Add replay possibility
-- [ ] Count points
+- [x] Count points

@@ -29,10 +29,18 @@ button {
 .selectedChoice {
     animation: movement 1s forwards;
 }
-.resetAnim {
-    animation: none;
-    transform: translateX(-200)
+
+
+@keyframes computerMovement {
+    to {
+        transform: translateX(-200px);
+    }
 }
+
+.selectedComputerChoice {
+    animation: computerMovement 1s forwards;
+}
+
 
 #player-img {
     width: 100px;

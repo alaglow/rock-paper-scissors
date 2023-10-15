@@ -29,6 +29,7 @@ function displayComputerChoice(computerChoice) {
   computerImage.id = 'computer-img'
   computerImage.src = getComputerImage(computerChoice);
   document.getElementById('computer-choice').appendChild(computerImage)
+  document.getElementById('computer-choice').classList.add("selectedComputerChoice")
 }
 
 
@@ -75,4 +76,9 @@ function onReset() {
   for (let i = 0; i < removeClass.length; i++) {
     removeClass[i].classList.remove('selectedChoice');
   }
+  let removeComputerClass = document.getElementsByClassName('selectedComputerChoice')
+  for (let i = 0; i < removeComputerClass.length; i++) {
+    removeComputerClass[i].
+  classList.remove('selectedComputerChoice');
+}
 }
