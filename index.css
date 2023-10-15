@@ -19,8 +19,19 @@ button {
     background: none;
 }
 
-button:active {
-    transform: translateY(4px);
+
+@keyframes movement {
+    to {
+        transform: translateX(200px);
+    }
+}
+
+.selectedChoice {
+    animation: movement 1s forwards;
+}
+.resetAnim {
+    animation: none;
+    transform: translateX(-200)
 }
 
 #player-img {

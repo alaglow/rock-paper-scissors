@@ -4,6 +4,7 @@ const SCISSORS = 'scissors';
 
 
 function onSelect(userChoice) {
+  document.getElementById(userChoice).classList.add("selectedChoice")
   let computerChoice = getComputerChoice()
   displayComputerChoice(computerChoice)
   evaluateGame(userChoice, computerChoice)
@@ -69,5 +70,9 @@ function onReset() {
   let buttons = document.getElementsByClassName("bt-cl");
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].disabled = false;
+  }
+  let removeClass = document.getElementsByClassName('selectedChoice')
+  for (let i = 0; i < removeClass.length; i++) {
+    removeClass[i].classList.remove('selectedChoice');
   }
 }
